@@ -2,30 +2,24 @@
 //  CoinsCell.swift
 //  CryptoWallet
 //
-//  Created by Дмитрий Дуров on 27.12.2022.
+//  Created by Дмитрий Дуров on 17.01.2023.
 //
 
 import UIKit
 
-protocol CoinsCellViewInputProtocol: AnyObject {
-    
+protocol CellModelRepresentable {
+        var viewModel: CoinsCellViewModelProtocol? { get }
 }
 
-protocol CoinsCellViewOutputProtocol {
-    init(view: CoinsCellViewInputProtocol)
-}
-
-final class CoinsViewCell: UITableViewCell {
-    
-    // MARK: - Public properties
-    
-    var presenter: CoinsCellViewOutputProtocol!
-    
-    // MARK: - Private properties
+final class CoinsCell: UITableViewCell, CellModelRepresentable {
+    var viewModel: CoinsCellViewModelProtocol? {
+        didSet {
+            updateView()
+        }
+    }
     
     private lazy var coinNameLabel: UILabel = {
         let coinNameLabel = UILabel()
-        coinNameLabel.text = "Bitcoin"
         coinNameLabel.textAlignment = .center
         coinNameLabel.font = UIFont.systemFont(ofSize: 25)
         return coinNameLabel
@@ -33,14 +27,12 @@ final class CoinsViewCell: UITableViewCell {
     
     private lazy var coinPriceLabel: UILabel = {
         let coinPriceLabel =  UILabel()
-        coinPriceLabel.text = "16000 $"
         coinPriceLabel.textAlignment = .center
         return coinPriceLabel
     }()
     
     private lazy var changingPriceLabel: UILabel = {
         let changingPriceLabel = UILabel()
-        changingPriceLabel.text = "- 0.1111 %"
         changingPriceLabel.textAlignment = .right
         return changingPriceLabel
     }()
@@ -57,6 +49,13 @@ final class CoinsViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func updateView() {
+        guard let viewModel = viewModel as? CoinsCellViewModel else { return print("no")}
+        coinNameLabel.text = viewModel.coinName
+        coinPriceLabel.text = String(format: "%.3f" , viewModel.coinPrice) + "$"
+        changingPriceLabel.text = String(format: "%.3f", viewModel.coinPriceChainging) + "%"
     }
     
     private func setStackView() {
@@ -89,6 +88,3 @@ final class CoinsViewCell: UITableViewCell {
     }
 }
 
-extension CoinsViewCell: CoinsCellViewInputProtocol {
-    
-}

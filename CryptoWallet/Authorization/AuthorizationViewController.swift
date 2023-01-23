@@ -17,10 +17,10 @@ protocol AuthorizationViewOutputProtocol {
 }
 
 final class AuthorizationViewController: UIViewController {
-
+    
     // MARK: - Public properties
     
-    var presenter: AuthorizationViewOutputProtocol!
+    var presenter: AuthorizationViewOutputProtocol?
     
     // MARK: - Private properties
     
@@ -68,8 +68,8 @@ final class AuthorizationViewController: UIViewController {
     // MARK: - Public methods
     
     @objc func tapLogInButton() {
-        presenter.userLogInAccount(with: loginTextField.text ?? "",
-                            password: passwordTextField.text ?? "")
+        presenter?.userLogInAccount(with: loginTextField.text ?? "",
+                                    password: passwordTextField.text ?? "")
     }
     
     // MARK: - Private methods

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F417D261295830150093DFDD /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417D260295830150093DFDD /* TextField.swift */; };
-		F417D266295836F20093DFDD /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417D265295836F20093DFDD /* StorageManager.swift */; };
 		F460D9B92969491D00B3ECD2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D9B82969491D00B3ECD2 /* RootViewController.swift */; };
 		F460D9BB2969515300B3ECD2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D9BA2969515300B3ECD2 /* SplashViewController.swift */; };
 		F49290DB2955986100DCA0B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49290DA2955986100DCA0B2 /* AppDelegate.swift */; };
@@ -20,6 +19,9 @@
 		F49290F629559AE600DCA0B2 /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49290F529559AE600DCA0B2 /* AuthorizationInteractor.swift */; };
 		F49290F829559AF400DCA0B2 /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49290F729559AF400DCA0B2 /* AuthorizationRouter.swift */; };
 		F49290FA29559B0A00DCA0B2 /* AuthorizationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49290F929559B0900DCA0B2 /* AuthorizationConfigurator.swift */; };
+		F493C1D6296FDFAF00CD483D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F493C1D5296FDFAF00CD483D /* NetworkManager.swift */; };
+		F49EECB0297668A200D50CFD /* CoinsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EECAF297668A200D50CFD /* CoinsCell.swift */; };
+		F49EECB2297668BB00D50CFD /* CoinsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EECB1297668BB00D50CFD /* CoinsCellViewModel.swift */; };
 		F4B42735295C0E4000F31B77 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B42734295C0E4000F31B77 /* CoinDetailsViewController.swift */; };
 		F4B42737295C102F00F31B77 /* CoinDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B42736295C102F00F31B77 /* CoinDetailPresenter.swift */; };
 		F4B42739295C115B00F31B77 /* CoinDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B42738295C115B00F31B77 /* CoinDetailsInteractor.swift */; };
@@ -31,15 +33,10 @@
 		F4BC856F29596B8F0059899B /* CoinsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC856E29596B8F0059899B /* CoinsListConfigurator.swift */; };
 		F4BC857129597A6F0059899B /* LogOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC857029597A6F0059899B /* LogOutButton.swift */; };
 		F4C450CA295AC102004453DE /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C450C9295AC102004453DE /* Coins.swift */; };
-		F4C450CC295AD443004453DE /* CoinsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C450CB295AD443004453DE /* CoinsViewCell.swift */; };
-		F4C450D1295AD48E004453DE /* CoinsCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C450D0295AD48E004453DE /* CoinsCellPresenter.swift */; };
-		F4C450D3295AD49A004453DE /* CoinsCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C450D2295AD49A004453DE /* CoinsCellInteractor.swift */; };
-		F4C450D7295AD4C3004453DE /* CoinsCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C450D6295AD4C3004453DE /* CoinsCellConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F417D260295830150093DFDD /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		F417D265295836F20093DFDD /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F460D9B82969491D00B3ECD2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F460D9BA2969515300B3ECD2 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F49290D72955986100DCA0B2 /* CryptoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +50,9 @@
 		F49290F529559AE600DCA0B2 /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
 		F49290F729559AF400DCA0B2 /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		F49290F929559B0900DCA0B2 /* AuthorizationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationConfigurator.swift; sourceTree = "<group>"; };
+		F493C1D5296FDFAF00CD483D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F49EECAF297668A200D50CFD /* CoinsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCell.swift; sourceTree = "<group>"; };
+		F49EECB1297668BB00D50CFD /* CoinsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCellViewModel.swift; sourceTree = "<group>"; };
 		F4B42734295C0E4000F31B77 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
 		F4B42736295C102F00F31B77 /* CoinDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailPresenter.swift; sourceTree = "<group>"; };
 		F4B42738295C115B00F31B77 /* CoinDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsInteractor.swift; sourceTree = "<group>"; };
@@ -64,10 +64,6 @@
 		F4BC856E29596B8F0059899B /* CoinsListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListConfigurator.swift; sourceTree = "<group>"; };
 		F4BC857029597A6F0059899B /* LogOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutButton.swift; sourceTree = "<group>"; };
 		F4C450C9295AC102004453DE /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
-		F4C450CB295AD443004453DE /* CoinsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsViewCell.swift; sourceTree = "<group>"; };
-		F4C450D0295AD48E004453DE /* CoinsCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCellPresenter.swift; sourceTree = "<group>"; };
-		F4C450D2295AD49A004453DE /* CoinsCellInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCellInteractor.swift; sourceTree = "<group>"; };
-		F4C450D6295AD4C3004453DE /* CoinsCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCellConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +89,7 @@
 		F417D262295833F60093DFDD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F417D265295836F20093DFDD /* StorageManager.swift */,
+				F493C1D5296FDFAF00CD483D /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -134,7 +130,7 @@
 				F417D25F29582FF10093DFDD /* Helpers */,
 				F49290F229559A7C00DCA0B2 /* Models */,
 				F49290EF295599C300DCA0B2 /* Resources */,
-				F49290F129559A1900DCA0B2 /* Storyboard */,
+				F49290F129559A1900DCA0B2 /* Storyboards */,
 				F49290F0295599E800DCA0B2 /* Supporting Files */,
 			);
 			path = CryptoWallet;
@@ -170,12 +166,12 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F49290F129559A1900DCA0B2 /* Storyboard */ = {
+		F49290F129559A1900DCA0B2 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				F49290E52955986300DCA0B2 /* LaunchScreen.storyboard */,
 			);
-			path = Storyboard;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		F49290F229559A7C00DCA0B2 /* Models */ = {
@@ -200,7 +196,7 @@
 		F4BC856529596B2A0059899B /* CoinsList */ = {
 			isa = PBXGroup;
 			children = (
-				F4C450CF295AD45F004453DE /* CoinsListViews */,
+				F4C450CF295AD45F004453DE /* CoinsCell */,
 				F4BC856629596B550059899B /* CoinsListViewController.swift */,
 				F4BC856829596B680059899B /* CoinsListPresenter.swift */,
 				F4BC856A29596B780059899B /* CoinsListInteractor.swift */,
@@ -210,15 +206,13 @@
 			path = CoinsList;
 			sourceTree = "<group>";
 		};
-		F4C450CF295AD45F004453DE /* CoinsListViews */ = {
+		F4C450CF295AD45F004453DE /* CoinsCell */ = {
 			isa = PBXGroup;
 			children = (
-				F4C450CB295AD443004453DE /* CoinsViewCell.swift */,
-				F4C450D0295AD48E004453DE /* CoinsCellPresenter.swift */,
-				F4C450D2295AD49A004453DE /* CoinsCellInteractor.swift */,
-				F4C450D6295AD4C3004453DE /* CoinsCellConfigurator.swift */,
+				F49EECAF297668A200D50CFD /* CoinsCell.swift */,
+				F49EECB1297668BB00D50CFD /* CoinsCellViewModel.swift */,
 			);
-			path = CoinsListViews;
+			path = CoinsCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,27 +290,25 @@
 				F4B42735295C0E4000F31B77 /* CoinDetailsViewController.swift in Sources */,
 				F4C450CA295AC102004453DE /* Coins.swift in Sources */,
 				F4BC856929596B680059899B /* CoinsListPresenter.swift in Sources */,
-				F4C450CC295AD443004453DE /* CoinsViewCell.swift in Sources */,
 				F49290DF2955986100DCA0B2 /* AuthorizationViewController.swift in Sources */,
 				F4BC856B29596B780059899B /* CoinsListInteractor.swift in Sources */,
 				F4B42737295C102F00F31B77 /* CoinDetailPresenter.swift in Sources */,
-				F4C450D7295AD4C3004453DE /* CoinsCellConfigurator.swift in Sources */,
 				F4B4273B295C127800F31B77 /* CoinDetailsConfigurator.swift in Sources */,
 				F4BC857129597A6F0059899B /* LogOutButton.swift in Sources */,
 				F49290F829559AF400DCA0B2 /* AuthorizationRouter.swift in Sources */,
-				F4C450D3295AD49A004453DE /* CoinsCellInteractor.swift in Sources */,
-				F417D266295836F20093DFDD /* StorageManager.swift in Sources */,
 				F460D9B92969491D00B3ECD2 /* RootViewController.swift in Sources */,
+				F49EECB2297668BB00D50CFD /* CoinsCellViewModel.swift in Sources */,
 				F4B42739295C115B00F31B77 /* CoinDetailsInteractor.swift in Sources */,
+				F493C1D6296FDFAF00CD483D /* NetworkManager.swift in Sources */,
 				F417D261295830150093DFDD /* TextField.swift in Sources */,
 				F49290F629559AE600DCA0B2 /* AuthorizationInteractor.swift in Sources */,
+				F49EECB0297668A200D50CFD /* CoinsCell.swift in Sources */,
 				F460D9BB2969515300B3ECD2 /* SplashViewController.swift in Sources */,
 				F49290FA29559B0A00DCA0B2 /* AuthorizationConfigurator.swift in Sources */,
 				F4BC856729596B550059899B /* CoinsListViewController.swift in Sources */,
 				F49290DB2955986100DCA0B2 /* AppDelegate.swift in Sources */,
 				F49290DD2955986100DCA0B2 /* SceneDelegate.swift in Sources */,
 				F4BC856D29596B840059899B /* CoinsListRouter.swift in Sources */,
-				F4C450D1295AD48E004453DE /* CoinsCellPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,11 +8,14 @@
 import UIKit
 
 protocol CoinDetailsViewInputProtocol: AnyObject {
-    
+    func displayCoinName(with title: String)
+    func displayCoinPrice(with title: String)
+    func displayChangingPrice(with title: String)
 }
 
 protocol CoinDetailsViewOutputProtocol {
     init(view: CoinDetailsViewInputProtocol)
+    func showDetails()
 }
 
 
@@ -20,24 +23,24 @@ final class CoinDetailsViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var presenter: CoinDetailsViewOutputProtocol!
+    var presenter: CoinDetailsViewOutputProtocol?
     
     // MARK: - Private properties
     
     private lazy var coinPriceLabel: UILabel = {
        let coinPriceLabel = UILabel()
-        coinPriceLabel.text = "1621212 $"
         coinPriceLabel.textAlignment = .center
-        coinPriceLabel.font = UIFont.systemFont(ofSize: 35)
+        coinPriceLabel.numberOfLines = 0
+        coinPriceLabel.font = UIFont.systemFont(ofSize: 30)
         coinPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         return coinPriceLabel
     }()
     
     private lazy var coinPriceChaingingLabel: UILabel = {
         let coinPriceChaingingLabel = UILabel()
-        coinPriceChaingingLabel.text = "0.01222 %"
         coinPriceChaingingLabel.textAlignment = .center
-        coinPriceChaingingLabel.font = UIFont.systemFont(ofSize: 25)
+        coinPriceChaingingLabel.numberOfLines = 0
+        coinPriceChaingingLabel.font = UIFont.systemFont(ofSize: 20)
         coinPriceChaingingLabel.translatesAutoresizingMaskIntoConstraints = false
         return coinPriceChaingingLabel
     }()
@@ -48,8 +51,6 @@ final class CoinDetailsViewController: UIViewController {
         logOutButton.translatesAutoresizingMaskIntoConstraints = false
         return logOutButton
     }()
-    
-    private let configurator: CoinDetailsConfigutationInputProtocol = CoinDetailsConfiguration()
     
     // MARK: - Override methods
     
@@ -62,8 +63,8 @@ final class CoinDetailsViewController: UIViewController {
         view.addSubview(coinPriceChaingingLabel)
         view.addSubview(logOutButton)
         
-        configurator.confugure(with: self)
         setConstraints()
+        presenter?.showDetails()
     }
     
     // MARK: - Private methods
@@ -72,11 +73,11 @@ final class CoinDetailsViewController: UIViewController {
         NSLayoutConstraint.activate([
             coinPriceLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             coinPriceLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            coinPriceLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20),
+            coinPriceLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
             coinPriceChaingingLabel.topAnchor.constraint(equalTo: coinPriceLabel.bottomAnchor, constant: 20),
             coinPriceChaingingLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            coinPriceChaingingLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20),
+            coinPriceChaingingLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
             logOutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             logOutButton.widthAnchor.constraint(equalToConstant: 150),
@@ -87,5 +88,17 @@ final class CoinDetailsViewController: UIViewController {
 }
 
 extension CoinDetailsViewController: CoinDetailsViewInputProtocol {
+    func displayCoinName(with title: String) {
+        self.title = title
+    }
+    
+    func displayCoinPrice(with title: String) {
+        coinPriceLabel.text = title
+    }
+    
+    func displayChangingPrice(with title: String) {
+        coinPriceChaingingLabel.text = title
+    }
+    
     
 }

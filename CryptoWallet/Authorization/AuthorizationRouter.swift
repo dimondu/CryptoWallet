@@ -18,7 +18,7 @@ final class AuthorizationRouter: AuthorizationRouterInputProtocol {
     
     // MARK: - Private properties
     
-    private weak var view: AuthorizationViewController!
+    private weak var view: AuthorizationViewController?
     
     // MARK: - Initializers
     

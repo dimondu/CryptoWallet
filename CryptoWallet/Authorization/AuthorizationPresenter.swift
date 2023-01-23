@@ -11,12 +11,12 @@ final class AuthorizationPresenter: AuthorizationViewOutputProtocol {
     
     // MARK: - Public properties
     
-    var interactor: AuthorizationInteractorInputProtocol!
-    var router: AuthorizationRouterInputProtocol!
+    var interactor: AuthorizationInteractorInputProtocol?
+    var router: AuthorizationRouterInputProtocol?
     
     // MARK: - Private properties
     
-   private weak var view: AuthorizationViewInputProtocol!
+   private weak var view: AuthorizationViewInputProtocol?
     
     // MARK: - Initializers
     
@@ -27,7 +27,7 @@ final class AuthorizationPresenter: AuthorizationViewOutputProtocol {
     // MARK: - Public methods
     
     func userLogInAccount(with login: String, password: String) {
-        interactor.checkValidateData(with: login, password: password)
+        interactor?.checkValidateData(with: login, password: password)
     }
 }
 
@@ -35,11 +35,11 @@ final class AuthorizationPresenter: AuthorizationViewOutputProtocol {
 
 extension AuthorizationPresenter: AuthorizationInteractorOutputProtocol {
     func didEnterInAccount(with login: String, password: String) {
-        router.openCriptoWalletList()
+        router?.openCriptoWalletList()
     }
     
     func didReceive() {
-        view.showAlert()
+        view?.showAlert()
     }
 }
 

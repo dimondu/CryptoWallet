@@ -10,9 +10,11 @@ import Foundation
 protocol CoinsListRouterInputProtocol {
     init(view: CoinsListViewController)
     func openAutorizationViewController()
+    func openCoinsDetailsViewController(with coins: Coins)
 }
 
 final class CoinsListRouter: CoinsListRouterInputProtocol {
+    
     
     // MARK: - Private properties
     
@@ -28,5 +30,12 @@ final class CoinsListRouter: CoinsListRouterInputProtocol {
     
     func openAutorizationViewController() {
         SceneDelegate.shared.rootViewController.switchToLogout()
+    }
+    
+    func openCoinsDetailsViewController(with coins: Coins) {
+        let configurator: CoinDetailsConfigutationInputProtocol = CoinDetailsConfigurator()
+        let coinDetailViewController = CoinDetailsViewController()
+        configurator.confugure(with: coinDetailViewController, and: coins)
+        view?.navigationController?.pushViewController(coinDetailViewController, animated: true)
     }
 }

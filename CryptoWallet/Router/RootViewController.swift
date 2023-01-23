@@ -12,11 +12,6 @@ final class RootViewController: UIViewController {
     private var current: UIViewController
     
     init() {
-//        if UserDefaults.standard.bool(forKey: "isUserLoggedIn") {
-//            current = UINavigationController(rootViewController: CoinsListViewController()) 
-//        } else {
-//            current = AuthorizationViewController()
-//        }
         current = SplashViewController()
         super.init(nibName:  nil, bundle: nil)
     }
@@ -91,5 +86,4 @@ final class RootViewController: UIViewController {
             completion?()
         }
     }
-    
 }

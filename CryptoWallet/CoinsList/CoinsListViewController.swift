@@ -8,31 +8,34 @@
 import UIKit
 
 protocol CoinsListViewInputProtocol: AnyObject {
-    
+    func reloadData(for section: CoinsSectionViewModel)
 }
 
 protocol CoinsListViewOutputProtocol {
     init(view: CoinsListViewInputProtocol)
+    func viewDidLoad()
     func logout()
+    func sortingButtonPressed()
+    func didTapCell(at indexPath: IndexPath)
 }
 
 final class CoinsListViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var presenter: CoinsListViewOutputProtocol!
+    var presenter: CoinsListViewOutputProtocol?
     
     // MARK: - Private properties
     
     private let configurator: CoinsListConfigutationInputProtocol = CoinsListConfiguration()
-    
-    private var ascendingSorting = true
+    private var activityIndicator: UIActivityIndicatorView?
+    private var sectionViewModel: CoinsSectionViewModelProtocol = CoinsSectionViewModel()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(CoinsViewCell.self, forCellReuseIdentifier: "coinCell")
+        tableView.register(CoinsCell.self, forCellReuseIdentifier: "coinCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -50,41 +53,60 @@ final class CoinsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Crypto Wallet"
-        
         view.backgroundColor = .white
         view.addSubview(tableView)
         view.addSubview(logoutButton)
+        activityIndicator = showActivityIndicator(in: view)
         
         configurator.confugure(with: self)
         setSortingButtom()
         setConstraints()
+        setupNavigationBar()
+        presenter?.viewDidLoad()
     }
     
     // MARK: - Public methods
     
-    @objc func sortingButtonTapped() {
-        if ascendingSorting {
-            ascendingSorting.toggle()
-            print("По убыванию")
-        } else {
-            ascendingSorting.toggle()
-            print("По возрастанию")
-        }
+    @objc func switchSorting() {
+        presenter?.sortingButtonPressed()
     }
     
     @objc func logOutButtonTapped() {
-        presenter.logout()
+        presenter?.logout()
     }
     
     // MARK: - Private methods
+    
+    private func setupNavigationBar() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.backgroundColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1)
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+    }
+    
+    private func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .black
+        activityIndicator.startAnimating()
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        
+        view.addSubview(activityIndicator)
+        
+        return activityIndicator
+    }
     
     private func setSortingButtom() {
         let sortingBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "arrow.up.arrow.down"),
             style: .done,
             target: self,
-            action: #selector(sortingButtonTapped)
+            action: #selector(switchSorting)
         )
+        sortingBarButtonItem.tintColor = .white
         navigationItem.leftBarButtonItem = sortingBarButtonItem
     }
     
@@ -107,17 +129,15 @@ final class CoinsListViewController: UIViewController {
 
 extension CoinsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        sectionViewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "coinCell", for: indexPath)
-                as? CoinsViewCell
-        else {
-            return UITableViewCell()
-        }
-        
+        let cellViewModel = sectionViewModel.rows[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier,
+                                                 for: indexPath)
+        guard let cell = cell as? CoinsCell else { return UITableViewCell() }
+        cell.viewModel = cellViewModel
         return cell
     }
 }
@@ -127,11 +147,23 @@ extension CoinsListViewController: UITableViewDataSource {
 extension CoinsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        presenter?.didTapCell(at: indexPath)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        sectionViewModel.rows[indexPath.row].cellHeight
     }
 }
 
 // MARK: - CoinsListViewInputProtocol
 
 extension CoinsListViewController: CoinsListViewInputProtocol {
+    func reloadData(for section: CoinsSectionViewModel) {
+        sectionViewModel = section
+        tableView.reloadData()
+        activityIndicator?.stopAnimating()
+    }
+    
     
 }

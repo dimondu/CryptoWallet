@@ -6,13 +6,13 @@
 //
 
 protocol CoinDetailsConfigutationInputProtocol {
-    func confugure(with view: CoinDetailsViewController)
+    func confugure(with view: CoinDetailsViewController, and coins: Coins)
 }
 
-final class CoinDetailsConfiguration: CoinDetailsConfigutationInputProtocol {
-    func confugure(with view: CoinDetailsViewController) {
+final class CoinDetailsConfigurator: CoinDetailsConfigutationInputProtocol {
+    func confugure(with view: CoinDetailsViewController, and coins: Coins) {
         let presenter = CoinDetailsPresenter(view: view)
-        let interactor = CoinDetailsInteractor(presenter: presenter)
+        let interactor = CoinDetailsInteractor(presenter: presenter, coins: coins)
         
         view.presenter = presenter
         presenter.interactor = interactor

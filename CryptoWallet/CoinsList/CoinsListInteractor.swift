@@ -10,17 +10,24 @@ import Foundation
 protocol CoinsListInteractorInputProtocol {
     init(presenter: CoinsListInteractorOutputProtocol)
     func changeLoginStatus()
+    func fetchCoins()
+    func toggleSortingStatus()
 }
 
 protocol CoinsListInteractorOutputProtocol: AnyObject {
     func exitTheScreen()
+    func coinsDidReceive(with dataStore: CoinsListDataStore)
+    func sortingStatusRecive(with toggle: Bool)
 }
 
 final class CoinsListInteractor: CoinsListInteractorInputProtocol {
     
     // MARK: - Private properties
     
-    private weak var presenter: CoinsListInteractorOutputProtocol!
+    
+    private weak var presenter: CoinsListInteractorOutputProtocol?
+    
+    private var ascendingSorting = true
     
     // MARK: - Initializers
     
@@ -32,7 +39,20 @@ final class CoinsListInteractor: CoinsListInteractorInputProtocol {
     
     func changeLoginStatus() {
         UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-        presenter.exitTheScreen()
+        presenter?.exitTheScreen()
     }
+    
+    func fetchCoins() {
+        NetworkManager.shared.getCoins() { [weak self] coin in
+            let dataStore = CoinsListDataStore(coins: coin)
+            self?.presenter?.coinsDidReceive(with: dataStore)
+        }
+    }
+    
+    func toggleSortingStatus() {
+        presenter?.sortingStatusRecive(with: ascendingSorting)
+        ascendingSorting.toggle()
+    }    
 }
+
 
