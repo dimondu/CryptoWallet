@@ -31,7 +31,7 @@
 		F4BC856B29596B780059899B /* CoinsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC856A29596B780059899B /* CoinsListInteractor.swift */; };
 		F4BC856D29596B840059899B /* CoinsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC856C29596B840059899B /* CoinsListRouter.swift */; };
 		F4BC856F29596B8F0059899B /* CoinsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC856E29596B8F0059899B /* CoinsListConfigurator.swift */; };
-		F4BC857129597A6F0059899B /* LogOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC857029597A6F0059899B /* LogOutButton.swift */; };
+		F4C0068A297E64A700A51087 /* CoinsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C00689297E64A700A51087 /* CoinsSectionViewModel.swift */; };
 		F4C450CA295AC102004453DE /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C450C9295AC102004453DE /* Coins.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,7 @@
 		F4BC856A29596B780059899B /* CoinsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListInteractor.swift; sourceTree = "<group>"; };
 		F4BC856C29596B840059899B /* CoinsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListRouter.swift; sourceTree = "<group>"; };
 		F4BC856E29596B8F0059899B /* CoinsListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListConfigurator.swift; sourceTree = "<group>"; };
-		F4BC857029597A6F0059899B /* LogOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutButton.swift; sourceTree = "<group>"; };
+		F4C00689297E64A700A51087 /* CoinsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsSectionViewModel.swift; sourceTree = "<group>"; };
 		F4C450C9295AC102004453DE /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				F417D260295830150093DFDD /* TextField.swift */,
-				F4BC857029597A6F0059899B /* LogOutButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,6 +210,7 @@
 			children = (
 				F49EECAF297668A200D50CFD /* CoinsCell.swift */,
 				F49EECB1297668BB00D50CFD /* CoinsCellViewModel.swift */,
+				F4C00689297E64A700A51087 /* CoinsSectionViewModel.swift */,
 			);
 			path = CoinsCell;
 			sourceTree = "<group>";
@@ -288,13 +288,13 @@
 				F49290F429559AD600DCA0B2 /* AuthorizationPresenter.swift in Sources */,
 				F4BC856F29596B8F0059899B /* CoinsListConfigurator.swift in Sources */,
 				F4B42735295C0E4000F31B77 /* CoinDetailsViewController.swift in Sources */,
+				F4C0068A297E64A700A51087 /* CoinsSectionViewModel.swift in Sources */,
 				F4C450CA295AC102004453DE /* Coins.swift in Sources */,
 				F4BC856929596B680059899B /* CoinsListPresenter.swift in Sources */,
 				F49290DF2955986100DCA0B2 /* AuthorizationViewController.swift in Sources */,
 				F4BC856B29596B780059899B /* CoinsListInteractor.swift in Sources */,
 				F4B42737295C102F00F31B77 /* CoinDetailPresenter.swift in Sources */,
 				F4B4273B295C127800F31B77 /* CoinDetailsConfigurator.swift in Sources */,
-				F4BC857129597A6F0059899B /* LogOutButton.swift in Sources */,
 				F49290F829559AF400DCA0B2 /* AuthorizationRouter.swift in Sources */,
 				F460D9B92969491D00B3ECD2 /* RootViewController.swift in Sources */,
 				F49EECB2297668BB00D50CFD /* CoinsCellViewModel.swift in Sources */,

@@ -18,7 +18,6 @@ protocol CoinDetailsViewOutputProtocol {
     func showDetails()
 }
 
-
 final class CoinDetailsViewController: UIViewController {
     
     // MARK: - Public properties
@@ -28,7 +27,7 @@ final class CoinDetailsViewController: UIViewController {
     // MARK: - Private properties
     
     private lazy var coinPriceLabel: UILabel = {
-       let coinPriceLabel = UILabel()
+        let coinPriceLabel = UILabel()
         coinPriceLabel.textAlignment = .center
         coinPriceLabel.numberOfLines = 0
         coinPriceLabel.font = UIFont.systemFont(ofSize: 30)
@@ -45,13 +44,6 @@ final class CoinDetailsViewController: UIViewController {
         return coinPriceChaingingLabel
     }()
     
-    private lazy var logOutButton: LogOutButton = {
-        let logOutButton = LogOutButton(type: .system)
-        logOutButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-        logOutButton.translatesAutoresizingMaskIntoConstraints = false
-        return logOutButton
-    }()
-    
     // MARK: - Override methods
     
     override func viewDidLoad() {
@@ -61,7 +53,6 @@ final class CoinDetailsViewController: UIViewController {
         
         view.addSubview(coinPriceLabel)
         view.addSubview(coinPriceChaingingLabel)
-        view.addSubview(logOutButton)
         
         setConstraints()
         presenter?.showDetails()
@@ -77,14 +68,9 @@ final class CoinDetailsViewController: UIViewController {
             
             coinPriceChaingingLabel.topAnchor.constraint(equalTo: coinPriceLabel.bottomAnchor, constant: 20),
             coinPriceChaingingLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            coinPriceChaingingLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            
-            logOutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            logOutButton.widthAnchor.constraint(equalToConstant: 150),
-            logOutButton.heightAnchor.constraint(equalToConstant: 50),
-            logOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            coinPriceChaingingLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
-    }    
+    }
 }
 
 extension CoinDetailsViewController: CoinDetailsViewInputProtocol {
@@ -99,6 +85,4 @@ extension CoinDetailsViewController: CoinDetailsViewInputProtocol {
     func displayChangingPrice(with title: String) {
         coinPriceChaingingLabel.text = title
     }
-    
-    
 }

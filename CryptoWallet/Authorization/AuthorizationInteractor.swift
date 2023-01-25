@@ -39,7 +39,6 @@ final class AuthorizationInteractor: AuthorizationInteractorInputProtocol {
     // MARK: - Public methods
     
     func checkValidateData(with login: String, password: String) {
-        
         if login == userData.login, password == userData.password {
             presenter.didEnterInAccount(with: login, password: password)
             UserDefaults.standard.set(true, forKey: "isUserLoggedIn")

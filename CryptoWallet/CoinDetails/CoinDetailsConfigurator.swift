@@ -10,12 +10,14 @@ protocol CoinDetailsConfigutationInputProtocol {
 }
 
 final class CoinDetailsConfigurator: CoinDetailsConfigutationInputProtocol {
+    
+    // MARK: - Public methods
+    
     func confugure(with view: CoinDetailsViewController, and coins: Coins) {
         let presenter = CoinDetailsPresenter(view: view)
         let interactor = CoinDetailsInteractor(presenter: presenter, coins: coins)
         
         view.presenter = presenter
         presenter.interactor = interactor
-
     }
 }

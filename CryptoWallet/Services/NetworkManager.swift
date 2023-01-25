@@ -14,12 +14,21 @@ enum NetworkError: Error {
 }
 
 final class NetworkManager {
+    
+    // MARK: - Public properties
+    
     static let shared = NetworkManager()
+    
+    // MARK: - Private properties
     
     private let coinNames = ["btc", "eth", "tron", "luna", "polkadot", "dogecoin", "tether", "stellar", "cardano", "xrp"]
     private var apiLinks: [String] = []
     
+    // MARK: - Initializers
+    
     private init() {}
+    
+    // MARK: - Public methods
     
     func fetch<T: Decodable>(_ type: T.Type,  for url: String?, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let urlString = url, let url = URL(string: urlString) else {
@@ -70,6 +79,8 @@ final class NetworkManager {
             completion(coins)
         }
     }
+    
+    // MARK: - Private methods
     
     private func getLinks() {
         for coinName in coinNames {

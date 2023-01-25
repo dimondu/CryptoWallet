@@ -8,6 +8,9 @@
 import UIKit
 
 final class TextField: UITextField {
+    
+    // MARK: - Initializers
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setTextField()
@@ -16,6 +19,8 @@ final class TextField: UITextField {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Public methods
     
     func setTextField() {
         layer.cornerRadius = 10

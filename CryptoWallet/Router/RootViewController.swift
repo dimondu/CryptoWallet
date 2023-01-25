@@ -9,7 +9,11 @@ import UIKit
 
 final class RootViewController: UIViewController {
     
+    // MARK: - Private properties
+    
     private var current: UIViewController
+    
+    // MARK: - Initializers
     
     init() {
         current = SplashViewController()
@@ -20,6 +24,8 @@ final class RootViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Override methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +34,8 @@ final class RootViewController: UIViewController {
         view.addSubview(current.view)
         current.didMove(toParent: self)
     }
+    
+    // MARK: - Public methods
     
     func showAuthorizationScreen() {
         let authorizationScreen = UINavigationController(rootViewController: AuthorizationViewController())
@@ -56,6 +64,7 @@ final class RootViewController: UIViewController {
         animateFadeTransition(to: new)
     }
     
+    // MARK: - Private methods
     
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
         current.willMove(toParent: nil)

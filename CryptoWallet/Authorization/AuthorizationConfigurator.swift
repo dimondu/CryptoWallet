@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol AuthorizationConfigurationInputProtocol {
     func configure(withView view: AuthorizationViewController)
 }

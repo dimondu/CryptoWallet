@@ -7,12 +7,10 @@
 
 import Foundation
 
-
 protocol AuthorizationRouterInputProtocol {
     init(view: AuthorizationViewController)
     func openCriptoWalletList()
 }
-
 
 final class AuthorizationRouter: AuthorizationRouterInputProtocol {
     

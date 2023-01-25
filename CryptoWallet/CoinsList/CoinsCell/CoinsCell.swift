@@ -12,11 +12,16 @@ protocol CellModelRepresentable {
 }
 
 final class CoinsCell: UITableViewCell, CellModelRepresentable {
+    
+    // MARK: - Public properties
+    
     var viewModel: CoinsCellViewModelProtocol? {
         didSet {
             updateView()
         }
     }
+    
+    // MARK: - Private properties
     
     private lazy var coinNameLabel: UILabel = {
         let coinNameLabel = UILabel()
@@ -51,8 +56,10 @@ final class CoinsCell: UITableViewCell, CellModelRepresentable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private methods
+    
     private func updateView() {
-        guard let viewModel = viewModel as? CoinsCellViewModel else { return print("no")}
+        guard let viewModel = viewModel as? CoinsCellViewModel else { return }
         coinNameLabel.text = viewModel.coinName
         coinPriceLabel.text = String(format: "%.3f" , viewModel.coinPrice) + "$"
         changingPriceLabel.text = String(format: "%.3f", viewModel.coinPriceChainging) + "%"
@@ -83,7 +90,6 @@ final class CoinsCell: UITableViewCell, CellModelRepresentable {
             mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20)
-            
         ])
     }
 }

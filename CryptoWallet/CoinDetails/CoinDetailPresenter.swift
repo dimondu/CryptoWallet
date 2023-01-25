@@ -15,18 +15,29 @@ struct CoinDetailsDataStore {
 
 final class CoinDetailsPresenter: CoinDetailsViewOutputProtocol {
     
+    // MARK: - Public properties
+    
     var interactor: CoinDetailsInteractorInputProtocol?
     
+    // MARK: - Private properties
+    
     private weak var view: CoinDetailsViewInputProtocol?
+    
+    
+    // MARK: - Initializers
     
     init(view: CoinDetailsViewInputProtocol) {
         self.view = view
     }
     
+    // MARK: - Public methods
+    
     func showDetails() {
         interactor?.provideCoinDetails()
     }
 }
+
+// MARK: - CoinDetailsInteractorOutputProtocol
 
 extension CoinDetailsPresenter: CoinDetailsInteractorOutputProtocol {
     func receiveCoinDetails(with dataStore: CoinDetailsDataStore) {
@@ -36,8 +47,6 @@ extension CoinDetailsPresenter: CoinDetailsInteractorOutputProtocol {
         view?.displayCoinPrice(with: coinPrice)
         view?.displayChangingPrice(with: coinChangingPrice)
     }
-    
-    
 }
 
 

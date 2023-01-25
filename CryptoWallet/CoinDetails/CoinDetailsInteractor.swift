@@ -19,20 +19,26 @@ protocol CoinDetailsInteractorOutputProtocol: AnyObject {
 
 final class CoinDetailsInteractor: CoinDetailsInteractorInputProtocol {
     
+    // MARK: - Private properties
+    
     private weak var presenter: CoinDetailsInteractorOutputProtocol?
     private let coins: Coins
+    
+    // MARK: - Initializers
     
     init(presenter: CoinDetailsInteractorOutputProtocol, coins: Coins) {
         self.presenter = presenter
         self.coins = coins
     }
     
+    // MARK: - Public methods
+    
     func provideCoinDetails() {
-        let dataSrore = CoinDetailsDataStore(
+        let dataStore = CoinDetailsDataStore(
             coinseName: coins.data.name,
             coinPrice: coins.data.marketData.priceUsd,
             changingPrice: coins.data.marketData.percentChangeUsdLast24Hours
         )
-        presenter?.receiveCoinDetails(with: dataSrore)
+        presenter?.receiveCoinDetails(with: dataStore)
     }
 }

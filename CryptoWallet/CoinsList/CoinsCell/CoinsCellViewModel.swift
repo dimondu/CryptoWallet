@@ -22,6 +22,9 @@ protocol CoinsSectionViewModelProtocol {
 }
 
 final class CoinsCellViewModel: CoinsCellViewModelProtocol {
+    
+    // MARK: - Public properties
+    
     var cellIdentifier: String {
         "coinCell"
     }
@@ -42,16 +45,13 @@ final class CoinsCellViewModel: CoinsCellViewModelProtocol {
         coins.data.marketData.percentChangeUsdLast24Hours
     }
     
+    // MARK: - Private properties
+    
     private let coins: Coins
     
-    required init(coins: Coins) {
+    // MARK: - Initializers
+    
+    init(coins: Coins) {
         self.coins = coins
-    }
-}
-
-final class CoinsSectionViewModel: CoinsSectionViewModelProtocol {
-    var rows: [CoinsCellViewModelProtocol] = []
-    var numberOfRows: Int {
-        rows.count
     }
 }

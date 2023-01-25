@@ -40,42 +40,46 @@ final class CoinsListViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var logoutButton: LogOutButton = {
-        let logOutButton = LogOutButton(type: .system)
-        logOutButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-        logOutButton.addTarget(self, action: #selector(logOutButtonTapped), for: .touchUpInside)
-        logOutButton.translatesAutoresizingMaskIntoConstraints = false
-        return logOutButton
+    private lazy var logoutButton: UIButton = {
+        let logoutButton = UIButton(type: .system)
+        logoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        logoutButton.backgroundColor = .systemRed
+        logoutButton.tintColor = .white
+        logoutButton.setTitle("Log Out", for: .normal)
+        logoutButton.layer.cornerRadius = 20
+        logoutButton.addTarget(self, action: #selector(logOutButtonTapped), for: .touchUpInside)
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        return logoutButton
     }()
     
     // MARK: - Override methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Crypto Wallet"
         view.backgroundColor = .white
         view.addSubview(tableView)
         view.addSubview(logoutButton)
-        activityIndicator = showActivityIndicator(in: view)
         
+        activityIndicator = showActivityIndicator(in: view)
         configurator.confugure(with: self)
         setSortingButtom()
         setConstraints()
         setupNavigationBar()
+        
         presenter?.viewDidLoad()
     }
     
-    // MARK: - Public methods
+    // MARK: - Private methods
     
-    @objc func switchSorting() {
+    @objc private func switchSorting() {
         presenter?.sortingButtonPressed()
     }
     
-    @objc func logOutButtonTapped() {
+    @objc private func logOutButtonTapped() {
         presenter?.logout()
     }
-    
-    // MARK: - Private methods
     
     private func setupNavigationBar() {
         let navBarAppearance = UINavigationBarAppearance()
@@ -85,6 +89,7 @@ final class CoinsListViewController: UIViewController {
         navBarAppearance.backgroundColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1)
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.tintColor = .white
     }
     
     private func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
@@ -106,7 +111,7 @@ final class CoinsListViewController: UIViewController {
             target: self,
             action: #selector(switchSorting)
         )
-        sortingBarButtonItem.tintColor = .white
+        
         navigationItem.leftBarButtonItem = sortingBarButtonItem
     }
     
