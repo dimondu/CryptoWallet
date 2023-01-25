@@ -29,6 +29,7 @@ final class AuthorizationViewController: UIViewController {
     private lazy var loginTextField: UITextField = {
         let loginTextField = TextField()
         loginTextField.placeholder = "Login"
+        
         return loginTextField
     }()
     
@@ -36,6 +37,7 @@ final class AuthorizationViewController: UIViewController {
         let passwordTextField = TextField()
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
+        
         return passwordTextField
     }()
     
@@ -45,6 +47,7 @@ final class AuthorizationViewController: UIViewController {
         logInButton.setTitle("Log In", for: .normal)
         logInButton.layer.cornerRadius = 20
         logInButton.addTarget(self, action: #selector(tapLogInButton), for: .touchUpInside)
+        
         return logInButton
     }()
     

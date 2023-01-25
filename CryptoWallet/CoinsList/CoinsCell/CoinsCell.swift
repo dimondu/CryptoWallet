@@ -27,18 +27,21 @@ final class CoinsCell: UITableViewCell, CellModelRepresentable {
         let coinNameLabel = UILabel()
         coinNameLabel.textAlignment = .center
         coinNameLabel.font = UIFont.systemFont(ofSize: 25)
+        
         return coinNameLabel
     }()
     
     private lazy var coinPriceLabel: UILabel = {
         let coinPriceLabel =  UILabel()
         coinPriceLabel.textAlignment = .center
+        
         return coinPriceLabel
     }()
     
     private lazy var changingPriceLabel: UILabel = {
         let changingPriceLabel = UILabel()
         changingPriceLabel.textAlignment = .right
+        
         return changingPriceLabel
     }()
     
