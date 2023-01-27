@@ -33,7 +33,7 @@ final class CoinsListRouter: CoinsListRouterInputProtocol {
     }
     
     func openCoinsDetailsViewController(with coins: Coins) {
-        let configurator: CoinDetailsConfigutationInputProtocol = CoinDetailsConfigurator()
+        let configurator: CoinDetailsConfigurationInputProtocol = CoinDetailsConfigurator()
         let coinDetailViewController = CoinDetailsViewController()
         configurator.confugure(with: coinDetailViewController, and: coins)
         view?.navigationController?.pushViewController(coinDetailViewController, animated: true)

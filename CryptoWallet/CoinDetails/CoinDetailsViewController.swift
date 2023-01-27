@@ -48,17 +48,23 @@ final class CoinDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Bitcoin"
-        view.backgroundColor = .white
         
-        view.addSubview(coinPriceLabel)
-        view.addSubview(coinPriceChaingingLabel)
-        
+        addSubview()
+        setupAppearance()
         setConstraints()
         presenter?.showDetails()
     }
     
     // MARK: - Private methods
+    
+    private func addSubview() {
+        view.addSubview(coinPriceLabel)
+        view.addSubview(coinPriceChaingingLabel)
+    }
+    
+    private func setupAppearance() {
+        view.backgroundColor = .white
+    }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

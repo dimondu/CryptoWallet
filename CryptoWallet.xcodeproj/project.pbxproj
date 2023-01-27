@@ -77,14 +77,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F417D25F29582FF10093DFDD /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				F417D260295830150093DFDD /* TextField.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		F417D262295833F60093DFDD /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,13 +85,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F460D9B72969490B00B3ECD2 /* Router */ = {
+		F460D9B72969490B00B3ECD2 /* Application Flow */ = {
 			isa = PBXGroup;
 			children = (
 				F460D9B82969491D00B3ECD2 /* RootViewController.swift */,
 				F460D9BA2969515300B3ECD2 /* SplashViewController.swift */,
 			);
-			path = Router;
+			path = "Application Flow";
 			sourceTree = "<group>";
 		};
 		F49290CE2955986100DCA0B2 = {
@@ -121,12 +113,12 @@
 		F49290D92955986100DCA0B2 /* CryptoWallet */ = {
 			isa = PBXGroup;
 			children = (
-				F460D9B72969490B00B3ECD2 /* Router */,
+				F417D260295830150093DFDD /* TextField.swift */,
+				F460D9B72969490B00B3ECD2 /* Application Flow */,
 				F49290EE2955998100DCA0B2 /* Authorization */,
 				F4BC856529596B2A0059899B /* CoinsList */,
 				F4B42733295C0E0100F31B77 /* CoinDetails */,
 				F417D262295833F60093DFDD /* Services */,
-				F417D25F29582FF10093DFDD /* Helpers */,
 				F49290F229559A7C00DCA0B2 /* Models */,
 				F49290EF295599C300DCA0B2 /* Resources */,
 				F49290F129559A1900DCA0B2 /* Storyboards */,

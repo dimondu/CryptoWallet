@@ -27,7 +27,7 @@ final class CoinsListViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let configurator: CoinsListConfigutationInputProtocol = CoinsListConfiguration()
+    private let configurator: CoinsListConfigurationInputProtocol = CoinsListConfiguration()
     private var activityIndicator: UIActivityIndicatorView?
     private var sectionViewModel: CoinsSectionViewModelProtocol = CoinsSectionViewModel()
     
@@ -57,17 +57,13 @@ final class CoinsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Crypto Wallet"
-        view.backgroundColor = .white
-        view.addSubview(tableView)
-        view.addSubview(logoutButton)
-        
         activityIndicator = showActivityIndicator(in: view)
         configurator.confugure(with: self)
+        addSubview()
         setSortingButtom()
         setConstraints()
         setupNavigationBar()
-        
+        setupApperarance()
         presenter?.viewDidLoad()
     }
     
@@ -79,6 +75,16 @@ final class CoinsListViewController: UIViewController {
     
     @objc private func logOutButtonTapped() {
         presenter?.logout()
+    }
+    
+    private func addSubview() {
+        view.addSubview(tableView)
+        view.addSubview(logoutButton)
+    }
+    
+    private func setupApperarance() {
+        title = "Crypto Wallet"
+        view.backgroundColor = .white
     }
     
     private func setupNavigationBar() {

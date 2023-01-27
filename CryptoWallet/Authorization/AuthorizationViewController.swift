@@ -29,7 +29,6 @@ final class AuthorizationViewController: UIViewController {
     private lazy var loginTextField: UITextField = {
         let loginTextField = TextField()
         loginTextField.placeholder = "Login"
-        
         return loginTextField
     }()
     
@@ -37,7 +36,6 @@ final class AuthorizationViewController: UIViewController {
         let passwordTextField = TextField()
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
-        
         return passwordTextField
     }()
     
@@ -47,19 +45,26 @@ final class AuthorizationViewController: UIViewController {
         logInButton.setTitle("Log In", for: .normal)
         logInButton.layer.cornerRadius = 20
         logInButton.addTarget(self, action: #selector(tapLogInButton), for: .touchUpInside)
-        
         return logInButton
     }()
     
-    private lazy var stackView = UIStackView()
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
     
     // MARK: - Override methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        
         configurator.configure(withView: self)
-        setStackView()
+        addSubview()
+        setupAppearance()
         setConstraints()
     }
     
@@ -75,16 +80,15 @@ final class AuthorizationViewController: UIViewController {
                                     password: passwordTextField.text ?? "")
     }
     
-    private func setStackView() {
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        stackView.distribution = .fillEqually
-        
+    private func addSubview() {
         stackView.addArrangedSubview(loginTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(logInButton)
+        view.addSubview(stackView)
+    }
+    
+    private func setupAppearance() {
+        view.backgroundColor = .lightGray
     }
     
     private func setConstraints() {

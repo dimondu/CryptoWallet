@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol CoinsListConfigutationInputProtocol {
+protocol CoinsListConfigurationInputProtocol {
     func confugure(with view: CoinsListViewController)
 }
 
-final class CoinsListConfiguration: CoinsListConfigutationInputProtocol {
+final class CoinsListConfiguration: CoinsListConfigurationInputProtocol {
     
     // MARK: - Public methods
     

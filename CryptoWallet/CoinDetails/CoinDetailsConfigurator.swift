@@ -5,11 +5,11 @@
 //  Created by Дмитрий Дуров on 28.12.2022.
 //
 
-protocol CoinDetailsConfigutationInputProtocol {
+protocol CoinDetailsConfigurationInputProtocol {
     func confugure(with view: CoinDetailsViewController, and coins: Coins)
 }
 
-final class CoinDetailsConfigurator: CoinDetailsConfigutationInputProtocol {
+final class CoinDetailsConfigurator: CoinDetailsConfigurationInputProtocol {
     
     // MARK: - Public methods
     

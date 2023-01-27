@@ -68,9 +68,13 @@ extension CoinsListPresenter: CoinsListInteractorOutputProtocol {
         var filteredCoins: [Coins] = []
         let section = CoinsSectionViewModel()
         if toggle {
-            filteredCoins = dataStore?.coins.sorted {$0.data.marketData.percentChangeUsdLast24Hours < $1.data.marketData.percentChangeUsdLast24Hours } ?? []
+            filteredCoins = dataStore?.coins.sorted {
+                $0.data.marketData.percentChangeUsdLast24Hours < $1.data.marketData.percentChangeUsdLast24Hours
+            } ?? []
         } else {
-            filteredCoins = dataStore?.coins.sorted { $0.data.marketData.percentChangeUsdLast24Hours > $1.data.marketData.percentChangeUsdLast24Hours } ?? []
+            filteredCoins = dataStore?.coins.sorted {
+                $0.data.marketData.percentChangeUsdLast24Hours > $1.data.marketData.percentChangeUsdLast24Hours
+            } ?? []
         }
         filteredCoins.forEach { section.rows.append(CoinsCellViewModel(coins: $0)) }
         dataStore?.coins = filteredCoins
