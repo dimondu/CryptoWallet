@@ -16,7 +16,7 @@ final class AuthorizationPresenter: AuthorizationViewOutputProtocol {
     
     // MARK: - Private properties
     
-   private weak var view: AuthorizationViewInputProtocol?
+    private weak var view: AuthorizationViewInputProtocol?
     
     // MARK: - Initializers
     

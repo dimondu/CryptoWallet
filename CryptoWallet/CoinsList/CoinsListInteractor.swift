@@ -24,9 +24,10 @@ final class CoinsListInteractor: CoinsListInteractorInputProtocol {
     
     // MARK: - Private properties
     
-    
     private weak var presenter: CoinsListInteractorOutputProtocol?
-    
+    private let coinNames = ["btc", "eth", "tron",
+                             "luna", "polkadot", "dogecoin",
+                             "tether", "stellar", "cardano", "xrp"]
     private var ascendingSorting = true
     
     // MARK: - Initializers
@@ -43,7 +44,7 @@ final class CoinsListInteractor: CoinsListInteractorInputProtocol {
     }
     
     func fetchCoins() {
-        NetworkManager.shared.getCoins() { [weak self] coin in
+        NetworkManager.shared.getCoins(coinNames: coinNames) { [weak self] coin in
             let dataStore = CoinsListDataStore(coins: coin)
             self?.presenter?.coinsDidReceive(with: dataStore)
         }

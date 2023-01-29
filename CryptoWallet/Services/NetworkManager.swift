@@ -19,11 +19,6 @@ final class NetworkManager {
     
     static let shared = NetworkManager()
     
-    // MARK: - Private properties
-    
-    private let coinNames = ["btc", "eth", "tron", "luna", "polkadot", "dogecoin", "tether", "stellar", "cardano", "xrp"]
-    private var apiLinks: [String] = []
-    
     // MARK: - Initializers
     
     private init() {}
@@ -57,20 +52,19 @@ final class NetworkManager {
         }.resume()
     }
     
-    func getCoins(completion: @escaping ([Coins]) -> Void) {
+    func getCoins(coinNames: [String], completion: @escaping ([Coins]) -> Void) {
         let coinGroup = DispatchGroup()
         var coins: [Coins] = []
-        getLinks()
         
-        for link in self.apiLinks {
+        for coinName in coinNames {
             coinGroup.enter()
-            self.fetch(Coins.self, for: link) { result in
+            self.fetch(Coins.self, for: makeCoinRequest(coinName: coinName)) { result in
                 switch result {
                 case .success(let coin):
                     coins.append(coin)
                     coinGroup.leave()
                 case .failure(let error):
-                    print("\(error.localizedDescription) \(link)")
+                    print(error.localizedDescription)
                     coinGroup.leave()
                 }
             }
@@ -82,10 +76,7 @@ final class NetworkManager {
     
     // MARK: - Private methods
     
-    private func getLinks() {
-        for coinName in coinNames {
-            let url = "https://data.messari.io/api/v1/assets/" + coinName + "/metrics"
-            apiLinks.append(url)
-        }
+    private func makeCoinRequest(coinName: String) -> String {
+        "https://data.messari.io/api/v1/assets/\(coinName)/metrics"
     }
 }

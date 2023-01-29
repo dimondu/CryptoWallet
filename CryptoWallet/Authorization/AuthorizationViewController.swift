@@ -27,13 +27,25 @@ final class AuthorizationViewController: UIViewController {
     private let configurator: AuthorizationConfigurationInputProtocol = AuthorizationConfigurator()
     
     private lazy var loginTextField: UITextField = {
-        let loginTextField = TextField()
+        let loginTextField = UITextField()
+        loginTextField.layer.cornerRadius = 10
+        loginTextField.backgroundColor = .white
+        loginTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10,
+                                                       height: loginTextField.frame.height))
+        loginTextField.leftViewMode = .always
+        loginTextField.textColor = .black
         loginTextField.placeholder = "Login"
         return loginTextField
     }()
     
     private lazy var passwordTextField: UITextField = {
-        let passwordTextField = TextField()
+        let passwordTextField = UITextField()
+        passwordTextField.layer.cornerRadius = 10
+        passwordTextField.backgroundColor = .white
+        passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10,
+                                                          height: passwordTextField.frame.height))
+        passwordTextField.leftViewMode = .always
+        passwordTextField.textColor = .black
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
         return passwordTextField
@@ -109,7 +121,6 @@ extension AuthorizationViewController: AuthorizationViewInputProtocol {
         let alert = UIAlertController(title: "Error",
                                       message: "Please, enter correct login and password",
                                       preferredStyle: .alert)
-        
         let action = UIAlertAction(title: "Ok", style: .cancel) { _ in
             self.passwordTextField.text = ""
         }

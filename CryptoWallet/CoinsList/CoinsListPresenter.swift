@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct CoinsListDataStore {
-    var coins: [Coins]
-}
-
 final class CoinsListPresenter: CoinsListViewOutputProtocol {
     
     // MARK: - Public properties
@@ -21,9 +17,7 @@ final class CoinsListPresenter: CoinsListViewOutputProtocol {
     // MARK: - Private properties
     
     private weak var view: CoinsListViewInputProtocol?
-    
     private var dataStore: CoinsListDataStore?
-    
     
     // MARK: - Initializers
     

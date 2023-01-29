@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct UserData {
-    let login = "1234"
-    let password = "1234"
-}
-
 protocol AuthorizationInteractorInputProtocol {
     init(presenter: AuthorizationInteractorOutputProtocol)
     func checkValidateData(with login: String, password: String)

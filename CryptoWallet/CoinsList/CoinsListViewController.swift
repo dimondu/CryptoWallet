@@ -28,7 +28,7 @@ final class CoinsListViewController: UIViewController {
     // MARK: - Private properties
     
     private let configurator: CoinsListConfigurationInputProtocol = CoinsListConfiguration()
-    private var activityIndicator: UIActivityIndicatorView?
+    
     private var sectionViewModel: CoinsSectionViewModelProtocol = CoinsSectionViewModel()
     
     private lazy var tableView: UITableView = {
@@ -52,14 +52,22 @@ final class CoinsListViewController: UIViewController {
         return logoutButton
     }()
     
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .black
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
+    
     // MARK: - Override methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator = showActivityIndicator(in: view)
         configurator.confugure(with: self)
         addSubview()
+        activityIndicator.startAnimating()
         setSortingButtom()
         setConstraints()
         setupNavigationBar()
@@ -80,6 +88,7 @@ final class CoinsListViewController: UIViewController {
     private func addSubview() {
         view.addSubview(tableView)
         view.addSubview(logoutButton)
+        view.addSubview(activityIndicator)
     }
     
     private func setupApperarance() {
@@ -96,18 +105,6 @@ final class CoinsListViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         navigationController?.navigationBar.tintColor = .white
-    }
-    
-    private func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .black
-        activityIndicator.startAnimating()
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        
-        view.addSubview(activityIndicator)
-        
-        return activityIndicator
     }
     
     private func setSortingButtom() {
@@ -159,7 +156,6 @@ extension CoinsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter?.didTapCell(at: indexPath)
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -173,7 +169,7 @@ extension CoinsListViewController: CoinsListViewInputProtocol {
     func reloadData(for section: CoinsSectionViewModel) {
         sectionViewModel = section
         tableView.reloadData()
-        activityIndicator?.stopAnimating()
+        activityIndicator.stopAnimating()
     }
     
     

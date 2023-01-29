@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F417D261295830150093DFDD /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417D260295830150093DFDD /* TextField.swift */; };
+		F43958A3298546F500D0C363 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43958A2298546F500D0C363 /* UserData.swift */; };
+		F43958A52985473900D0C363 /* CoinsListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43958A42985473900D0C363 /* CoinsListDataStore.swift */; };
+		F43958A72985476500D0C363 /* CoinDetailsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43958A62985476500D0C363 /* CoinDetailsDataStore.swift */; };
 		F460D9B92969491D00B3ECD2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D9B82969491D00B3ECD2 /* RootViewController.swift */; };
 		F460D9BB2969515300B3ECD2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460D9BA2969515300B3ECD2 /* SplashViewController.swift */; };
 		F49290DB2955986100DCA0B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49290DA2955986100DCA0B2 /* AppDelegate.swift */; };
@@ -36,7 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F417D260295830150093DFDD /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		F43958A2298546F500D0C363 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		F43958A42985473900D0C363 /* CoinsListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListDataStore.swift; sourceTree = "<group>"; };
+		F43958A62985476500D0C363 /* CoinDetailsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsDataStore.swift; sourceTree = "<group>"; };
 		F460D9B82969491D00B3ECD2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F460D9BA2969515300B3ECD2 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F49290D72955986100DCA0B2 /* CryptoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +89,16 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F43958AA2986953500D0C363 /* Domein Models */ = {
+			isa = PBXGroup;
+			children = (
+				F43958A2298546F500D0C363 /* UserData.swift */,
+				F43958A42985473900D0C363 /* CoinsListDataStore.swift */,
+				F43958A62985476500D0C363 /* CoinDetailsDataStore.swift */,
+			);
+			path = "Domein Models";
+			sourceTree = "<group>";
+		};
 		F460D9B72969490B00B3ECD2 /* Application Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +127,6 @@
 		F49290D92955986100DCA0B2 /* CryptoWallet */ = {
 			isa = PBXGroup;
 			children = (
-				F417D260295830150093DFDD /* TextField.swift */,
 				F460D9B72969490B00B3ECD2 /* Application Flow */,
 				F49290EE2955998100DCA0B2 /* Authorization */,
 				F4BC856529596B2A0059899B /* CoinsList */,
@@ -168,6 +181,7 @@
 		F49290F229559A7C00DCA0B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F43958AA2986953500D0C363 /* Domein Models */,
 				F4C450C9295AC102004453DE /* Coins.swift */,
 			);
 			path = Models;
@@ -281,10 +295,12 @@
 				F4BC856F29596B8F0059899B /* CoinsListConfigurator.swift in Sources */,
 				F4B42735295C0E4000F31B77 /* CoinDetailsViewController.swift in Sources */,
 				F4C0068A297E64A700A51087 /* CoinsSectionViewModel.swift in Sources */,
+				F43958A72985476500D0C363 /* CoinDetailsDataStore.swift in Sources */,
 				F4C450CA295AC102004453DE /* Coins.swift in Sources */,
 				F4BC856929596B680059899B /* CoinsListPresenter.swift in Sources */,
 				F49290DF2955986100DCA0B2 /* AuthorizationViewController.swift in Sources */,
 				F4BC856B29596B780059899B /* CoinsListInteractor.swift in Sources */,
+				F43958A52985473900D0C363 /* CoinsListDataStore.swift in Sources */,
 				F4B42737295C102F00F31B77 /* CoinDetailPresenter.swift in Sources */,
 				F4B4273B295C127800F31B77 /* CoinDetailsConfigurator.swift in Sources */,
 				F49290F829559AF400DCA0B2 /* AuthorizationRouter.swift in Sources */,
@@ -292,7 +308,7 @@
 				F49EECB2297668BB00D50CFD /* CoinsCellViewModel.swift in Sources */,
 				F4B42739295C115B00F31B77 /* CoinDetailsInteractor.swift in Sources */,
 				F493C1D6296FDFAF00CD483D /* NetworkManager.swift in Sources */,
-				F417D261295830150093DFDD /* TextField.swift in Sources */,
+				F43958A3298546F500D0C363 /* UserData.swift in Sources */,
 				F49290F629559AE600DCA0B2 /* AuthorizationInteractor.swift in Sources */,
 				F49EECB0297668A200D50CFD /* CoinsCell.swift in Sources */,
 				F460D9BB2969515300B3ECD2 /* SplashViewController.swift in Sources */,

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol CoinDetailsInteractorInputProtocol {
     init(presenter: CoinDetailsInteractorOutputProtocol, coins: Coins)
     func provideCoinDetails()

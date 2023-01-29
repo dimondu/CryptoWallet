@@ -48,7 +48,6 @@ final class RootViewController: UIViewController {
         current.willMove(toParent: nil)
         current.view.removeFromSuperview()
         current.removeFromParent()
-        
         current = authorizationScreen
     }
     
@@ -70,7 +69,6 @@ final class RootViewController: UIViewController {
         current.willMove(toParent: nil)
         addChild(new)
         transition(from: current, to: new, duration: 0.3, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
-            
         }) { completed in
             self.current.removeFromParent()
             new.didMove(toParent: self)

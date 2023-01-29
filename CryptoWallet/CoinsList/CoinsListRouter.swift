@@ -15,7 +15,6 @@ protocol CoinsListRouterInputProtocol {
 
 final class CoinsListRouter: CoinsListRouterInputProtocol {
     
-    
     // MARK: - Private properties
     
     private weak var view: CoinsListViewController?

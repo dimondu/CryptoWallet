@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct CoinDetailsDataStore {
-    let coinseName: String
-    let coinPrice: Double
-    let changingPrice: Double
-}
-
 final class CoinDetailsPresenter: CoinDetailsViewOutputProtocol {
     
     // MARK: - Public properties
@@ -22,7 +16,6 @@ final class CoinDetailsPresenter: CoinDetailsViewOutputProtocol {
     // MARK: - Private properties
     
     private weak var view: CoinDetailsViewInputProtocol?
-    
     
     // MARK: - Initializers
     
