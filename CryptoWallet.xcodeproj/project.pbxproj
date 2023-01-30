@@ -89,14 +89,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F43958AA2986953500D0C363 /* Domein Models */ = {
+		F43958AA2986953500D0C363 /* Domain Models */ = {
 			isa = PBXGroup;
 			children = (
 				F43958A2298546F500D0C363 /* UserData.swift */,
 				F43958A42985473900D0C363 /* CoinsListDataStore.swift */,
 				F43958A62985476500D0C363 /* CoinDetailsDataStore.swift */,
 			);
-			path = "Domein Models";
+			path = "Domain Models";
 			sourceTree = "<group>";
 		};
 		F460D9B72969490B00B3ECD2 /* Application Flow */ = {
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				F4C450C9295AC102004453DE /* Coins.swift */,
-				F43958AA2986953500D0C363 /* Domein Models */,
+				F43958AA2986953500D0C363 /* Domain Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
