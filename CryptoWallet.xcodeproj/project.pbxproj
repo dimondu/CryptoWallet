@@ -181,8 +181,8 @@
 		F49290F229559A7C00DCA0B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F43958AA2986953500D0C363 /* Domein Models */,
 				F4C450C9295AC102004453DE /* Coins.swift */,
+				F43958AA2986953500D0C363 /* Domein Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
