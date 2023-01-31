@@ -26,7 +26,7 @@ final class CoinDetailsViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private lazy var coinPriceLabel: UILabel = {
+    private let coinPriceLabel: UILabel = {
         let coinPriceLabel = UILabel()
         coinPriceLabel.textAlignment = .center
         coinPriceLabel.numberOfLines = 0
@@ -35,7 +35,7 @@ final class CoinDetailsViewController: UIViewController {
         return coinPriceLabel
     }()
     
-    private lazy var coinPriceChaingingLabel: UILabel = {
+    private let coinPriceChaingingLabel: UILabel = {
         let coinPriceChaingingLabel = UILabel()
         coinPriceChaingingLabel.textAlignment = .center
         coinPriceChaingingLabel.numberOfLines = 0

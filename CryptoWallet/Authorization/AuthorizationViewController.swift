@@ -26,7 +26,7 @@ final class AuthorizationViewController: UIViewController {
     
     private let configurator: AuthorizationConfigurationInputProtocol = AuthorizationConfigurator()
     
-    private lazy var loginTextField: UITextField = {
+    private let loginTextField: UITextField = {
         let loginTextField = UITextField()
         loginTextField.layer.cornerRadius = 10
         loginTextField.backgroundColor = .white
@@ -38,7 +38,7 @@ final class AuthorizationViewController: UIViewController {
         return loginTextField
     }()
     
-    private lazy var passwordTextField: UITextField = {
+    private let passwordTextField: UITextField = {
         let passwordTextField = UITextField()
         passwordTextField.layer.cornerRadius = 10
         passwordTextField.backgroundColor = .white
@@ -60,7 +60,7 @@ final class AuthorizationViewController: UIViewController {
         return logInButton
     }()
     
-    private lazy var stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 20

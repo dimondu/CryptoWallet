@@ -23,26 +23,26 @@ final class CoinsCell: UITableViewCell, CellModelRepresentable {
     
     // MARK: - Private properties
     
-    private lazy var coinNameLabel: UILabel = {
+    private let coinNameLabel: UILabel = {
         let coinNameLabel = UILabel()
         coinNameLabel.textAlignment = .center
         coinNameLabel.font = UIFont.systemFont(ofSize: 25)
         return coinNameLabel
     }()
     
-    private lazy var coinPriceLabel: UILabel = {
+    private let coinPriceLabel: UILabel = {
         let coinPriceLabel =  UILabel()
         coinPriceLabel.textAlignment = .center
         return coinPriceLabel
     }()
     
-    private lazy var changingPriceLabel: UILabel = {
+    private let changingPriceLabel: UILabel = {
         let changingPriceLabel = UILabel()
         changingPriceLabel.textAlignment = .right
         return changingPriceLabel
     }()
     
-    private lazy var mainStackView: UIStackView = {
+    private let mainStackView: UIStackView = {
         let mainStackView = UIStackView()
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.axis = .horizontal
@@ -51,7 +51,7 @@ final class CoinsCell: UITableViewCell, CellModelRepresentable {
         return mainStackView
     }()
     
-    private lazy var nameAndPriceStackView: UIStackView = {
+    private let nameAndPriceStackView: UIStackView = {
         let nameAndPriceStackView = UIStackView()
         nameAndPriceStackView.axis = .vertical
         nameAndPriceStackView.spacing = 10
