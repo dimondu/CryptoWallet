@@ -26,7 +26,6 @@ final class CoinsCell: UITableViewCell, CellModelRepresentable {
     private let coinNameLabel: UILabel = {
         let coinNameLabel = UILabel()
         coinNameLabel.textAlignment = .center
-        coinNameLabel.font = UIFont.systemFont(ofSize: 25)
         return coinNameLabel
     }()
     
@@ -46,7 +45,7 @@ final class CoinsCell: UITableViewCell, CellModelRepresentable {
         let mainStackView = UIStackView()
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.axis = .horizontal
-        mainStackView.spacing = 20
+        mainStackView.spacing = 10
         mainStackView.distribution = .fillEqually
         return mainStackView
     }()
@@ -76,7 +75,7 @@ final class CoinsCell: UITableViewCell, CellModelRepresentable {
     private func updateView() {
         guard let viewModel = viewModel as? CoinsCellViewModel else { return }
         coinNameLabel.text = viewModel.coinName
-        coinPriceLabel.text = String(format: "%.3f" , viewModel.coinPrice) + "$"
+        coinPriceLabel.text = String(format: "%.4f" , viewModel.coinPrice) + "$"
         changingPriceLabel.text = String(format: "%.3f", viewModel.coinPriceChainging) + "%"
     }
     

@@ -34,7 +34,7 @@ final class CoinDetailsPresenter: CoinDetailsViewOutputProtocol {
 
 extension CoinDetailsPresenter: CoinDetailsInteractorOutputProtocol {
     func receiveCoinDetails(with dataStore: CoinDetailsDataStore) {
-        let coinPrice = "Price:" + " " + String(format: "%.3f" , dataStore.coinPrice) + "$"
+        let coinPrice = "Price:" + " " + String(format: "%.5f" , dataStore.coinPrice) + "$"
         let coinChangingPrice = "Changing last 24 hours:" + " " + String(format: "%.3f" , dataStore.changingPrice) + "%"
         view?.displayCoinName(with: dataStore.coinseName)
         view?.displayCoinPrice(with: coinPrice)

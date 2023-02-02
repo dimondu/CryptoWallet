@@ -26,7 +26,7 @@ final class CoinsListInteractor: CoinsListInteractorInputProtocol {
     
     private weak var presenter: CoinsListInteractorOutputProtocol?
     private let coinNames = ["btc", "eth", "tron",
-                             "luna", "polkadot", "dogecoin",
+                             "lunc", "polkadot", "dogecoin",
                              "tether", "stellar", "cardano", "xrp"]
     private var ascendingSorting = true
     
