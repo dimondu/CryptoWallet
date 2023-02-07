@@ -29,10 +29,12 @@
 
 ### Итоговый вид приложения:
 
-![Simulator Screen Shot - iPhone 14 Pro - 2023-02-07 at 18 45 47](https://user-images.githubusercontent.com/34001634/217297097-0b3e60fe-14c1-4119-8140-a14fd86eb8f3.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2023-02-07 at 18 45 56](https://user-images.githubusercontent.com/34001634/217297146-61f70c95-c592-486b-bcb8-1f93de02ac17.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2023-02-07 at 18 46 07](https://user-images.githubusercontent.com/34001634/217297601-36d07e5e-6af4-4d92-9ccf-e267ba9fa39c.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2023-02-07 at 18 46 12](https://user-images.githubusercontent.com/34001634/217297638-4ef39ae5-49aa-4395-9f3d-881342abf957.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2023-02-07 at 18 46 16](https://user-images.githubusercontent.com/34001634/217297660-8e2e8410-e8b1-465f-bbb4-cb39676a7ea7.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2023-02-07 at 18 46 19](https://user-images.githubusercontent.com/34001634/217297676-097fbb93-a519-420e-86a1-192f0f79c377.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2023-02-07 at 18 46 23](https://user-images.githubusercontent.com/34001634/217297700-771f3cea-8304-4f61-9210-ec102f1692b2.png)
+<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 25" src="https://user-images.githubusercontent.com/34001634/217298934-aca85a19-94d9-469c-bc1b-86ceafeed070.png">
+<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 31" src="https://user-images.githubusercontent.com/34001634/217298961-1e5dfa0c-c099-4da9-b6a5-d057801d4718.png">
+<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 37" src="https://user-images.githubusercontent.com/34001634/217299006-b0f1d4f7-01a5-4f11-bf47-96c08fbb3c99.png">
+<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 41" src="https://user-images.githubusercontent.com/34001634/217299035-feec7c53-563c-445c-85ee-26468f363d38.png">
+<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 45" src="https://user-images.githubusercontent.com/34001634/217299070-3b0e9fae-a376-44e6-a8d8-4623fb3e329e.png">
+<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 47" src="https://user-images.githubusercontent.com/34001634/217299088-aaaaef78-a9c5-4ffe-a0e2-e4c0ec124776.png">
+
+<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 47" src="https://user-images.githubusercontent.com/34001634/217299088-aaaaef78-a9c5-4ffe-a0e2-e4c0ec124776.png](https://user-images.githubusercontent.com/34001634/217299183-ac793045-7622-4b3c-ab7f-a589ccbcfbdc.png">
+
