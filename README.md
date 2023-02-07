@@ -36,5 +36,6 @@
 <img width="343" alt="Снимок экрана 2023-02-07 в 19 07 45" src="https://user-images.githubusercontent.com/34001634/217299070-3b0e9fae-a376-44e6-a8d8-4623fb3e329e.png">
 <img width="343" alt="Снимок экрана 2023-02-07 в 19 07 47" src="https://user-images.githubusercontent.com/34001634/217299088-aaaaef78-a9c5-4ffe-a0e2-e4c0ec124776.png">
 
-<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 47" src="https://user-images.githubusercontent.com/34001634/217299088-aaaaef78-a9c5-4ffe-a0e2-e4c0ec124776.png](https://user-images.githubusercontent.com/34001634/217299183-ac793045-7622-4b3c-ab7f-a589ccbcfbdc.png">
+<img width="343" alt="Снимок экрана 2023-02-07 в 19 07 47" src="https://user-images.githubusercontent.com/34001634/217299088-aaaaef78-a9c5-4ffe-a0e2-e4c0ec124776.png">
+
 
