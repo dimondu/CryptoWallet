@@ -92,11 +92,11 @@ final class CoinsListViewController: UIViewController {
     }
     
     private func setupApperarance() {
-        title = "Crypto Wallet"
         view.backgroundColor = .white
     }
     
     private func setupNavigationBar() {
+        title = "Crypto Wallet"
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
