@@ -26,7 +26,7 @@ final class CoinsListPresenter: CoinsListViewOutputProtocol {
     }
     
     func viewDidLoad() {
-        interactor?.fetchCoins()
+        interactor?.getCoins()
     }
     
     func sortingButtonPressed() {

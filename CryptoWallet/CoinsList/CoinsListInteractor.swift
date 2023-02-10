@@ -10,7 +10,7 @@ import Foundation
 protocol CoinsListInteractorInputProtocol {
     init(presenter: CoinsListInteractorOutputProtocol)
     func changeLoginStatus()
-    func fetchCoins()
+    func getCoins()
     func toggleSortingStatus()
 }
 
@@ -43,17 +43,39 @@ final class CoinsListInteractor: CoinsListInteractorInputProtocol {
         presenter?.exitTheScreen()
     }
     
-    func fetchCoins() {
-        NetworkManager.shared.getCoins(coinNames: coinNames) { [weak self] coin in
-            let dataStore = CoinsListDataStore(coins: coin)
-            self?.presenter?.coinsDidReceive(with: dataStore)
-        }
-    }
-    
     func toggleSortingStatus() {
         presenter?.sortingStatusRecive(with: ascendingSorting)
         ascendingSorting.toggle()
-    }    
+    }
+    
+    func getCoins() {
+        let coinGroup = DispatchGroup()
+        var coins: [Coins] = []
+        
+        for coinName in coinNames {
+            coinGroup.enter()
+            NetworkManager.shared.fetch(Coins.self, for: makeCoinRequest(coinName: coinName)) { result in
+                switch result {
+                case .success(let coin):
+                    coins.append(coin)
+                    coinGroup.leave()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    coinGroup.leave()
+                }
+            }
+        }
+        coinGroup.notify(queue: .main) {
+            let dataStore = CoinsListDataStore(coins: coins)
+            self.presenter?.coinsDidReceive(with: dataStore)
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    private func makeCoinRequest(coinName: String) -> String {
+        "https://data.messari.io/api/v1/assets/\(coinName)/metrics"
+    }
 }
 
 

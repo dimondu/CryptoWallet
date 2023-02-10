@@ -51,32 +51,4 @@ final class NetworkManager {
             }
         }.resume()
     }
-    
-    func getCoins(coinNames: [String], completion: @escaping ([Coins]) -> Void) {
-        let coinGroup = DispatchGroup()
-        var coins: [Coins] = []
-        
-        for coinName in coinNames {
-            coinGroup.enter()
-            self.fetch(Coins.self, for: makeCoinRequest(coinName: coinName)) { result in
-                switch result {
-                case .success(let coin):
-                    coins.append(coin)
-                    coinGroup.leave()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    coinGroup.leave()
-                }
-            }
-        }
-        coinGroup.notify(queue: .main) {
-            completion(coins)
-        }
-    }
-    
-    // MARK: - Private methods
-    
-    private func makeCoinRequest(coinName: String) -> String {
-        "https://data.messari.io/api/v1/assets/\(coinName)/metrics"
-    }
 }
