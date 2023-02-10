@@ -171,6 +171,4 @@ extension CoinsListViewController: CoinsListViewInputProtocol {
         tableView.reloadData()
         activityIndicator.stopAnimating()
     }
-    
-    
 }
