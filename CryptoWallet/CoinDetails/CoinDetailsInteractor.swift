@@ -34,9 +34,9 @@ final class CoinDetailsInteractor: CoinDetailsInteractorInputProtocol {
     
     func provideCoinDetails() {
         let dataStore = CoinDetailsDataStore(
-            coinseName: coins.data.name,
-            coinPrice: coins.data.marketData.priceUsd,
-            changingPrice: coins.data.marketData.percentChangeUsdLast24Hours
+            coinseName: coins.data.name ?? "Not found",
+            coinPrice: coins.data.marketData.priceUsd ?? 0,
+            changingPrice: coins.data.marketData.percentChangeUsdLast24Hours ?? 0 
         )
         presenter?.receiveCoinDetails(with: dataStore)
     }

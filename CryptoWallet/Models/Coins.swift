@@ -10,13 +10,13 @@ struct Coins: Decodable {
 }
 
 struct DataClass: Decodable {
-    let symbol: String
-    let name: String
+    let symbol: String?
+    let name: String?
     let marketData: MarketData
 }
 
 struct MarketData: Decodable {
-    let priceUsd: Double
-    let percentChangeUsdLast24Hours: Double
+    let priceUsd: Double?
+    let percentChangeUsdLast24Hours: Double?
 }
 

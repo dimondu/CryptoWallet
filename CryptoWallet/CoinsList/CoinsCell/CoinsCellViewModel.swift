@@ -34,15 +34,15 @@ final class CoinsCellViewModel: CoinsCellViewModelProtocol {
     }
     
     var coinName: String {
-        coins.data.name
+        coins.data.name ?? "Not Found"
     }
     
     var coinPrice: Double {
-        coins.data.marketData.priceUsd
+        coins.data.marketData.priceUsd ?? 0
     }
     
     var coinPriceChainging: Double {
-        coins.data.marketData.percentChangeUsdLast24Hours
+        coins.data.marketData.percentChangeUsdLast24Hours ?? 0
     }
     
     // MARK: - Private properties

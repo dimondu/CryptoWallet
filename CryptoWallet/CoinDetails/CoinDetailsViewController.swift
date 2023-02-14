@@ -79,6 +79,8 @@ final class CoinDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - CoinDetailsViewInputProtocol
+
 extension CoinDetailsViewController: CoinDetailsViewInputProtocol {
     func displayCoinName(with title: String) {
         self.title = title

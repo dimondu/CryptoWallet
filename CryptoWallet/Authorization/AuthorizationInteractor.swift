@@ -21,7 +21,7 @@ final class AuthorizationInteractor: AuthorizationInteractorInputProtocol {
     
     // MARK: - Private properties
     
-    private weak var presenter: AuthorizationInteractorOutputProtocol!
+    private weak var presenter: AuthorizationInteractorOutputProtocol?
     
     private let userData = UserData()
     
@@ -35,10 +35,10 @@ final class AuthorizationInteractor: AuthorizationInteractorInputProtocol {
     
     func checkValidateData(with login: String, password: String) {
         if login == userData.login, password == userData.password {
-            presenter.didEnterInAccount(with: login, password: password)
+            presenter?.didEnterInAccount(with: login, password: password)
             UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
         } else {
-            presenter.didReceive()
+            presenter?.didReceive()
         }
     }
 }
